@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dollf8jcs6nbx"]
+
+[ext_resource type="Script" uid="uid://bqfhj5msr8ow5" path="res://Scenes/3D/habitat.gd" id="1_iljwq"]
+[ext_resource type="PackedScene" uid="uid://d3gycsi66hd8r" path="res://Scenes/ui.tscn" id="1_iuclt"]
+
+[sub_resource type="Environment" id="Environment_dfks1"]
+background_mode = 1
+background_color = Color(0, 0.3254902, 0.50980395, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iuclt"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iuclt"]
+points = PackedVector3Array(1.0158731, 0.015873017, 1.0158731, -1.0158731, -0.015873017, -1.0158731, -1.0158731, 0.015873017, -1.0158731, 1.0158731, -0.015873017, -1.0158731, -1.0158731, -0.015873017, 1.0158731, -1.0158731, 0.015873017, 1.0158731, 1.0158731, 0.015873017, -1.0158731, 1.0158731, -0.015873017, 1.0158731)
+
+[node name="habitat1" type="Node3D"]
+script = ExtResource("1_iljwq")
+
+[node name="RootCanvas" type="CanvasLayer" parent="."]
+
+[node name="Node3D2" type="Node3D" parent="RootCanvas"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="RootCanvas/Node3D2"]
+offset_right = 648.0
+offset_bottom = 1152.0
+
+[node name="SubViewport" type="SubViewport" parent="RootCanvas/Node3D2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(648, 1152)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_dfks1")
+
+[node name="Plane" type="StaticBody3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport/Plane"]
+mesh = SubResource("PlaneMesh_iuclt")
+skeleton = NodePath("../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport/Plane"]
+shape = SubResource("ConvexPolygonShape3D_iuclt")
+
+[node name="Slave_container" type="Node3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.89551765, 0.44502598, 0, -0.44502598, 0.89551765, 0, 2.5127892, 2.2193704)
+current = true
+
+[node name="UI" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport" instance=ExtResource("1_iuclt")]

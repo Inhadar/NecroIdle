@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://katxgwrorpqk"]
+
+[ext_resource type="Script" uid="uid://d15cb36umed70" path="res://Scenes/3D/forge.gd" id="1_gq2gl"]
+[ext_resource type="PackedScene" uid="uid://b5gecha3abvxm" path="res://Scenes/forge_slider.tscn" id="2_8da48"]
+[ext_resource type="PackedScene" uid="uid://d3gycsi66hd8r" path="res://Scenes/ui.tscn" id="3_w043n"]
+
+[sub_resource type="Environment" id="Environment_dfks1"]
+background_mode = 1
+background_color = Color(0, 0.16044623, 0.31024078, 1)
+
+[node name="forge1" type="Node3D"]
+script = ExtResource("1_gq2gl")
+
+[node name="RootCanvas" type="CanvasLayer" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="RootCanvas"]
+environment = SubResource("Environment_dfks1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="RootCanvas"]
+transform = Transform3D(1, 0, 0, 0, 0.9917988, 0.12780897, 0, -0.12780897, 0.9917988, 0, 1.4818139, 0)
+shadow_enabled = true
+
+[node name="Node3D2" type="Node3D" parent="RootCanvas"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="RootCanvas/Node3D2"]
+offset_right = 648.0
+offset_bottom = 1152.0
+
+[node name="SubViewport" type="SubViewport" parent="RootCanvas/Node3D2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(648, 1152)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.95115894, 0.3087016, 0, -0.3087016, 0.95115894, 0, 0.74913025, 2.2041209)
+
+[node name="Forge_slider" parent="RootCanvas" instance=ExtResource("2_8da48")]
+
+[node name="UI" parent="RootCanvas" instance=ExtResource("3_w043n")]

@@ -1,0 +1,170 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3gycsi66hd8r"]
+
+[ext_resource type="FontFile" uid="uid://crcch75sfohex" path="res://Assets/Fonts/ARIAL.TTF" id="1_jxero"]
+[ext_resource type="Script" uid="uid://cvg67f6ae4j3y" path="res://Scenes/ui.gd" id="1_qdvrb"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qdvrb")
+
+[node name="Bones" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 21.0
+offset_right = 100.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_jxero")
+theme_override_font_sizes/font_size = 32
+text = "Bone:
+000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Souls" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_right = 107.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_jxero")
+theme_override_font_sizes/font_size = 32
+text = "Soul: 000000"
+vertical_alignment = 1
+
+[node name="MapsButton" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_right = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Graves" type="HBoxContainer" parent="MapsButton"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="grave1" type="Button" parent="MapsButton/Graves"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "grave1"
+
+[node name="grave2" type="Button" parent="MapsButton/Graves"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "grave2"
+
+[node name="grave3" type="Button" parent="MapsButton/Graves"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "grave3"
+
+[node name="grave4" type="Button" parent="MapsButton/Graves"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "grave4"
+
+[node name="Forges" type="HBoxContainer" parent="MapsButton"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="forge1" type="Button" parent="MapsButton/Forges"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "forge1"
+
+[node name="forge2" type="Button" parent="MapsButton/Forges"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "forge2"
+
+[node name="forge3" type="Button" parent="MapsButton/Forges"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "forge3"
+
+[node name="forge4" type="Button" parent="MapsButton/Forges"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "forge4"
+
+[node name="Habitats" type="HBoxContainer" parent="MapsButton"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="habitat1" type="Button" parent="MapsButton/Habitats"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "habitat1"
+
+[node name="habitat2" type="Button" parent="MapsButton/Habitats"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "habitat2"
+
+[node name="habitat3" type="Button" parent="MapsButton/Habitats"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "habitat3"
+
+[node name="habitat4" type="Button" parent="MapsButton/Habitats"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "habitat4"
+
+[node name="Targets" type="HBoxContainer" parent="MapsButton"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="target1" type="Button" parent="MapsButton/Targets"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "target1"
+
+[node name="target2" type="Button" parent="MapsButton/Targets"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "target2"
+
+[node name="target3" type="Button" parent="MapsButton/Targets"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "target3"
+
+[node name="target4" type="Button" parent="MapsButton/Targets"]
+visible = false
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "target4"

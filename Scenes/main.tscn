@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b82nhvgnavfli"]
+
+[ext_resource type="Script" uid="uid://nv8tpbcbbli5" path="res://Scenes/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://d3gycsi66hd8r" path="res://Scenes/ui.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cja4m3xskr445" path="res://Scenes/scroller_page.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cer31p5rybiuy" path="res://Objects/enemy_base.tscn" id="4_jjvhh"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_jjgbg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.460948, 0.461144, 1)
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="ScrollerPage" parent="." instance=ExtResource("3_8gbba")]
+
+[node name="EnemyBase" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(309, 527)
+scale = Vector2(10, 10)

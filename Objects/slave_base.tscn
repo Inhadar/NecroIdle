@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://kbm00njb556v"]
+
+[ext_resource type="Script" uid="uid://xqb1hbk13gkd" path="res://Objects/slave_base.gd" id="1_rqf2w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ylfil"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ylfil"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqf2w"]
+size = Vector3(1, 2.058838, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["Slave"]]
+transform = Transform3D(0.9998477, 0, 0.017452406, 0, 1, 0, -0.017452406, 0, 0.9998477, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_rqf2w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ylfil")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ylfil")
+
+[node name="Raycasts" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.53416944, -0.011857033, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_rqf2w")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5gecha3abvxm"]
+
+[ext_resource type="Script" uid="uid://d3xef5ru71cmh" path="res://Scenes/forge_base.gd" id="1_5bt3i"]
+[ext_resource type="FontFile" uid="uid://crcch75sfohex" path="res://Assets/Fonts/ARIAL.TTF" id="1_fvq1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bt3i"]
+albedo_color = Color(0.03529412, 0, 0.36862746, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5bt3i"]
+material = SubResource("StandardMaterial3D_5bt3i")
+height = 0.045
+
+[node name="Forge_slider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5bt3i")
+
+[node name="ForgeVisual" type="Node3D" parent="."]
+
+[node name="SlaveMesh" type="MeshInstance3D" parent="ForgeVisual"]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.58696234, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="ForgeVisual"]
+unique_name_in_owner = true
+mesh = SubResource("CylinderMesh_5bt3i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 313.0
+offset_right = 648.0
+offset_bottom = 377.0
+theme_override_constants/separation = 520
+
+[node name="left" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="right" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="ForgeButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.5
+offset_top = -335.0
+offset_right = 181.5
+offset_bottom = -227.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_fvq1s")
+theme_override_font_sizes/font_size = 48
+text = "FORGE"
+
+[connection signal="pressed" from="HBoxContainer/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="ForgeButton" to="." method="_on_forge_button_pressed"]

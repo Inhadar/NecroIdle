@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb1rfmqx03e4w"]
+
+[ext_resource type="Script" uid="uid://bxvwr07pykcwb" path="res://Scenes/3D/grave.gd" id="1_52w1r"]
+[ext_resource type="PackedScene" uid="uid://d3gycsi66hd8r" path="res://Scenes/ui.tscn" id="3_sjb71"]
+[ext_resource type="PackedScene" uid="uid://l7tuqyy834wl" path="res://Objects/target_base.tscn" id="4_52w1r"]
+[ext_resource type="PackedScene" uid="uid://cja4m3xskr445" path="res://Scenes/scroller_page.tscn" id="4_moil1"]
+
+[sub_resource type="Environment" id="Environment_dfks1"]
+background_mode = 1
+background_color = Color(0.6896705, 0.17638063, 0.084804215, 1)
+
+[node name="target1" type="Node3D"]
+script = ExtResource("1_52w1r")
+
+[node name="RootCanvas" type="CanvasLayer" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="RootCanvas"]
+environment = SubResource("Environment_dfks1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="RootCanvas"]
+
+[node name="Node3D2" type="Node3D" parent="RootCanvas"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="RootCanvas/Node3D2"]
+offset_right = 648.0
+offset_bottom = 1152.0
+
+[node name="SubViewport" type="SubViewport" parent="RootCanvas/Node3D2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(648, 1152)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.9482683, 0.3174702, 0, -0.3174702, 0.94826823, 0, 0.73221195, 3.65817)
+
+[node name="UI" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport" instance=ExtResource("3_sjb71")]
+
+[node name="ScrollerPage" parent="RootCanvas/Node3D2/SubViewportContainer/SubViewport" instance=ExtResource("4_moil1")]
+
+[node name="AutoClickers" type="Node3D" parent="."]
+
+[node name="TargetBase" parent="." instance=ExtResource("4_52w1r")]

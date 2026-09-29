@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsloxtxov44si"]
+
+[ext_resource type="FontFile" uid="uid://crcch75sfohex" path="res://Assets/Fonts/ARIAL.TTF" id="1_bwvir"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(648, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 648.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 3809.9995
+offset_bottom = 1135.9999
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("1_bwvir")
+theme_override_font_sizes/font_size = 296
+text = "Name
+Lv:1
+Data:ffffffffffffff"
+text_overrun_behavior = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 16.0
+offset_right = 2272.0
+offset_bottom = 1135.9999
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("1_bwvir")
+theme_override_font_sizes/font_size = 296
+text = "Price:10
+Level Up
++x Upg"
